@@ -1,4 +1,4 @@
-baseURL = "http://streamaserver.org/"
+baseURL = "https://streamaserver.org/"
 languageCode = "en-us"
 title = "Streama"
 theme = "streama"
