@@ -1,0 +1,46 @@
+.services .service-block {
+    padding: 30px 20px;
+}
+
+@media (max-width: 480px) {
+    .services .service-block {
+        padding: 15px;
+    }
+}
+
+.services .service-block .service-icon {
+    margin-bottom: 15px;
+}
+
+.services .service-block i {
+    font-size: 40px;
+}
+
+.services .service-block h3 {
+    color: #333;
+    font-size: 18px;
+}
+
+.services .service-block p {
+    color: #777;
+}
+
+.jumbotron{
+    background-size: cover;
+}
+
+
+.toc-border{
+    border: #bbbbbb solid 1px;
+}
+.toc-text{
+    cursor: pointer;
+}
+
+pre{
+    background-color: #eff0f1;
+}
+
+body{
+    padding-bottom: 150px;
+}

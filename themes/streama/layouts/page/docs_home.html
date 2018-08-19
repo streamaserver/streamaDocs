@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                {{ partial "nav-links-docs.html" . }}
+            </div>
+            <div class="col-lg-9">
+                {{ .Content }}
+
+                {{ range .Site.Taxonomies.categories.fundamentals }}
+
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>
+                                <a href="{{ .URL }}">{{ .Name }}</a>
+                            </h3>
+                            <p>
+                                {{ .Description }}
+                                <a href="{{ .RelPermalink }}" class="f6 mt2 db link primary-color dim">
+                                    Read More &raquo;
+                                </a>
+
+
+                            </p>
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+
+    </div>
+
+
+{{ end }}
+
+
+{{ define "title" }}
+{{ .Site.Title }} Documentation
+{{ end }}

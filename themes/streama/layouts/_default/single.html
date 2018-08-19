@@ -1,0 +1,29 @@
+{{ define "title" }}
+    {{ .Site.Title }} Docs - {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            {{ partial "nav-links-docs.html" . }}
+        </div>
+        <div class="col-lg-10 clearfix">
+            <h1 class="display-3">{{ .Title }}</h1><hr>
+
+            <div class="col-lg-4 float-right toc-border">
+                {{- partial "toc.html" . -}}
+            </div>
+
+            {{ .Content }}
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+{{ end }}

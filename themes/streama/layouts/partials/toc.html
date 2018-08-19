@@ -1,0 +1,9 @@
+{{ if .Params.toc }}
+<p class="lead">On this Page
+    <small class="text-muted" id="toc-vis">
+        <span id="toc-vis-hide" class="toc-text">Hide contents <i class="fa fa-arrow-up"></i></span>
+        <span id="toc-vis-show" class="toc-text" style="display: none">Show contents <i class="fa fa-arrow-down"></i></span>
+    </small>
+</p>
+    <div id="toc">{{ .TableOfContents }}</div>
+{{ end }}

@@ -1,0 +1,38 @@
+enable  : true
+item  :
+- icon : magic
+  title : Easy Setup
+  description : ...whether you choose docker or vanilla, local or remote.
+
+- icon : cloud-upload-alt
+  title : Media Management
+  description : Easy drag-and-drop to upload your media to streama!
+
+- icon : sync
+  title : Live Sync Watching
+  description : Watch with your loved ones remotely, with sync for play/pause and scrubbing.
+
+- icon : tv
+  title : Beautiful Video Player
+  description : With an episode and season browser.
+
+- icon : users
+  title : Multi-User Capable
+  description : Create accounts for anyone you like and grant them specific privileges.
+
+- icon : clock
+  title : Continue Watching
+  description : The system remembers where you left off last time!
+
+- icon : retweet
+  title : Related Movies & Shows
+  description : The system detects similar movies and shows for you to add.
+
+- icon : code
+  title : Open Source
+  description : Use, change and distribute the code as much as you want!
+
+- icon : search
+  title : File Browser
+  description : Access your current Files with the built-in file browser
+

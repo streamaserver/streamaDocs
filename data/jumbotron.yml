@@ -1,0 +1,14 @@
+enable  : true
+title : Streama
+lead : Self hosted streaming media server
+description : Host your own Streaming Application with your media library.
+button:
+  - link: /getting-started/installing/
+    text : Get Started
+    color : btn-primary
+
+  - link: https://github.com/streamaserver/streama
+    text : GitHub
+    color : btn-outline-light
+
+bg : "jumbo_bg.jpg"

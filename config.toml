@@ -1,0 +1,34 @@
+baseURL = "http://streamaserver.org/"
+languageCode = "en-us"
+title = "Streama"
+theme = "streama"
+
+
+# Site Menus
+[menu]
+    # Navbar Menus
+    [[menu.nav]]
+        name    = "Docs"
+        url     = "/docs/"
+        weight  = 2
+    [[menu.nav]]
+        name    = "Help"
+        url     = "/help/"
+        weight  = 3
+    [[menu.nav]]
+        name    = "GitHub"
+        url     = "https://github.com/streamaserver/streama"
+        weight  = 4
+
+
+    [[menu.docs]]
+      name = "About Strema"
+      weight = 1
+      identifier = "about"
+      url = "/about/"
+
+    [[menu.docs]]
+      name = "Getting Started"
+      weight = 5
+      identifier = "getting-started"
+      url = "/getting-started/"

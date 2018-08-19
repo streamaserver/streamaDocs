@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+    {{ if .Site.Data.jumbotron.enable }}
+        <div class="jumbotron jumbotron-fluid text-light bg-dark"
+             {{ if .Site.Data.jumbotron.bg }}
+                 {{ printf "style='background-image:url(%q)'" .Site.Data.jumbotron.bg | absURL | safeHTMLAttr }}
+             {{end}}
+        >
+            <div class="container">
+                <h1 class="display-4">{{ .Site.Data.jumbotron.title }}</h1>
+                <p class="lead">{{ .Site.Data.jumbotron.lead }}</p>
+                <hr class="my-4">
+                <p>{{ .Site.Data.jumbotron.description }}</p>
+                <p class="lead">
+                    {{ range .Site.Data.jumbotron.button }}
+                    <a class="btn {{ .color }} btn-lg" href="{{ .link }}" role="button">{{ .text }}</a>
+                    {{ end }}
+                </p>
+                </div>
+        </div>
+    {{ end }}
+
+    {{ if .Site.Data.feature.enable }}
+        <section class="services section-xs">
+            <div class="container">
+                <div class="row">
+                    {{ range .Site.Data.feature.item }}
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="service-block color-bg text-center">
+                            <div class="service-icon text-center">
+                                <i class="fa fa-{{ .icon }}"></i>
+                            </div>
+                            <h3>{{ .title }}</h3>
+                            <p>{{ .description }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </section>
+    {{ end }}
+
+{{ end }}
+
+{{ define "title" }}
+{{ .Site.Title }} - Self hosted media server
+{{ end }}
+
+{{/* A spacer is defined in the baseof to space out the content on most pages. We don't want this on the homepage because of the jumbotron. */}}
+{{ define "spacer" }}<div></div>{{ end }}
