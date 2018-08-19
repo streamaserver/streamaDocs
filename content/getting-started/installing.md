@@ -2,17 +2,17 @@
 title: Install Streama
 linktitle: Install Streama
 description: Install Streama on Linux, Windows, macOS, FreeBSD, and on any machine with sufficient resources where Java can run.
-date: 2016-11-01
-publishdate: 2016-11-01
-lastmod: 2018-01-02
+date: 2018-08-18
+publishdate: 2018-08-18
+lastmod: 2018-08-18
 categories: [getting started,fundamentals]
 keywords: [install,pc,windows,linux,macos,binary,tarball]
 menu:
   docs:
     parent: "getting-started"
-    weight: 30
-weight: 30
-sections_weight: 30
+    weight: 10
+weight: 10
+sections_weight: 10
 draft: false
 aliases: [/tutorials/installing-on-windows/,/tutorials/installing-on-mac/,/overview/installing/,/getting-started/install,/install/]
 toc: true
