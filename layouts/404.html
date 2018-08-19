@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Page not found</h1>
+                <p>The page could not be found.</p>
+            </div>
+        </div>
+    </div>
+
+{{ end }}
+
+{{ define "title" }}
+{{ .Site.Title }} - Page not found
+{{ end }}
+
+{{/* A spacer is defined in the baseof to space out the content on most pages. We don't want this on the homepage because of the jumbotron. */}}
+{{ define "spacer" }}<div></div>{{ end }}
