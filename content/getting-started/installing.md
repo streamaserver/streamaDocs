@@ -97,9 +97,9 @@ Grails application running at http://localhost:8080 in environment: production
 ```
  
 
-## Next Steps
+# Next Steps
 
-Now that you've installed Streama, read the [Quick Start guide][quickstart] and explore the rest of the documentation. If you have questions, connect with the community via [Discord or GitHub][/help].
+Now that you've installed Streama, have a look at the [first steps][firststeps] page and explore the rest of the documentation. If you have questions, connect with the community via [Discord or GitHub][/help].
 
-[quickstart]: /getting-started/quick-start/
+[firststeps]: /getting-started/first-steps/
 [releases]: https://github.com/streamaserver/streama/releases/
