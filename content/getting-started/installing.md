@@ -61,7 +61,7 @@ java -jar streama-X.Y.war
 
 You should see the following output after a short time: 
 
-```bash
+```
 Grails application running at http://localhost:8080 in environment: production
 ```
 
@@ -72,13 +72,34 @@ Other mainstream distributions are supported and should be very similar to the U
 {{% /improve %}}
 
 # Windows
-{{% improve %}}
-{{% /improve %}}
+### Install Java
+
+Download and install Java **8** RE from the Oracle website.
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+
+### Download Streama
+
+Download Streama from the [releases page][releases] page into the folder you will be running from.
+
+### Run
+Start Command Prompt or Powershell in the directory with the `streama-X.Y.war` you downloaded.
+
+```
+java -jar streama-X.Y.war
+``` 
+
+You should see the following output after a short time.
+
+```
+Grails application running at http://localhost:8080 in environment: production
+```
  
 
 ## Next Steps
 
-Now that you've installed Hugo, read the [Quick Start guide][quickstart] and explore the rest of the documentation. If you have questions, connect with the community via [Discord or GitHub][/help].
+Now that you've installed Streama, read the [Quick Start guide][quickstart] and explore the rest of the documentation. If you have questions, connect with the community via [Discord or GitHub][/help].
 
 [quickstart]: /getting-started/quick-start/
 [releases]: https://github.com/streamaserver/streama/releases/
