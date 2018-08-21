@@ -2,7 +2,10 @@ baseURL = "https://streamaserver.org/"
 languageCode = "en-us"
 title = "Streama"
 theme = "streama"
+enableGitInfo = true
 
+[params]
+    docs_repo = "https://github.com/streamaserver/streamaDocs/"
 
 # Site Menus
 [menu]

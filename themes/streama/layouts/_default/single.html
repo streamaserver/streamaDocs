@@ -17,6 +17,15 @@
             </div>
 
             {{ .Content }}
+
+            <div class="update-box">
+                This page was last updated: {{ .Lastmod.Format "January 2, 2006" }}:
+                {{ with .GitInfo }}
+                <a class="hide-child link primary-color" href="{{$.Site.Params.docs_repo}}commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a>
+                {{end}}
+                <br>
+                <a href="{{$.Site.Params.docs_repo}}tree/master/content/{{.File.Path}}" class="btn btn-primary">Improve this page</a>
+            </div>
         </div>
 
 

@@ -44,3 +44,9 @@ pre{
 body{
     padding-bottom: 150px;
 }
+
+.update-box{
+    margin-top: 3rem;
+    border: #bbbbbb solid 1px;
+    padding: 1rem;
+}
