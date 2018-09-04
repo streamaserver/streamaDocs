@@ -35,3 +35,9 @@ enableGitInfo = true
       weight = 5
       identifier = "getting-started"
       url = "/getting-started/"
+
+    [[menu.docs]]
+      name = "Configuration"
+      weight = 10
+      identifier = "config"
+      url = "/config/"
