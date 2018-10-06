@@ -2,9 +2,9 @@
 title: Install Streama
 linktitle: Install Streama
 description: Install Streama on Linux, Windows, macOS, FreeBSD, and on any machine with sufficient resources where Java can run.
-date: 2018-08-18
-publishdate: 2018-08-18
-lastmod: 2018-08-18
+date: 2018-10-06
+publishdate: 2018-10-06
+lastmod: 2018-10-06
 categories: [getting started,fundamentals]
 keywords: [install,pc,windows,linux,macos,binary,tarball]
 menu:
@@ -31,6 +31,8 @@ Ubuntu is the recommended distribution for Streama.
 
 ### Install Java
 
+Java 8 is the recommended, Streama may not work with Java 7 or 10.
+
 ```bash
 sudo apt install openjdk-8-jre
 ```
@@ -39,11 +41,13 @@ sudo apt install openjdk-8-jre
 
 Create or enter the directory streama will be run from (the directory should be owned as the user that will run Streama). `/data/streama` or `/srv/streama` are good options, but any will work.
 
+Download the *war* from the [GitHub releases page][releases]. You can use the example below to download.
+
 ```bash
-wget https://github.com/streamaserver/streama/releases/download/vX.Y/streama-X.Y.war
+wget https://github.com/streamaserver/streama/releases/download/vEXAMPLE/streama-EXAMPLE.war
 ```
 
-Make the `.war` executable with:
+Make the `.war` executable with (replace the filename with the one you downloaded):
 
 ```bash
 chmod +x streama-X.Y.war
