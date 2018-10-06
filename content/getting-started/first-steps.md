@@ -30,7 +30,7 @@ Using a relative path will not work.
 
 
 # Optional but recommended:
-The below steps are optional but recommended to use Streama as it was intended.
+The below steps are optional but recommended to use Streama properly.
 
 
 ## Add a themoviedb API key
