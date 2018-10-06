@@ -16,4 +16,4 @@ for bugs you find or any new features you may want implemented.
 Be sure to also check out our contributing information.
 
 ## Discord
-You can join the conversation on [Discord](https://discord.gg/CJEHWX9). Be sure to read the #information and #rules.
+You can join the conversation on [Discord](https://discord.gg/CJEHWX9). Be sure to read the Docs before asking a question and the #information and #rules on Discord.
