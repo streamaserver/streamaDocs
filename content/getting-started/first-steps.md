@@ -51,5 +51,5 @@ You can then select files from this folder or bulk-add them.
 The below steps are completely optional and depend on your use of Streama.
 
 ## Reverse proxy for running on port 80 or with HTTPS
-If you want to run on port 80 or with HTTPS see [Reverse proxies](../config/proxy).
+If you want to run on port 80 or with HTTPS see [Reverse proxies](/config/proxy).
 
