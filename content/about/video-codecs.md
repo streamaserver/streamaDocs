@@ -30,7 +30,7 @@ You can convert your videos with FFMPEG. You can try this as a starting point:
 ffmpeg -i input.mkv -vcodec h264 -acodec aac -strict -2 output.mp4
 ```
 
-Convert recursively mkv and avi with no spaces.
+Convert recursively mkv and avi with no spaces and remove original file.
 
 ```
 #! /bin/bash
