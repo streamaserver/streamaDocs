@@ -34,16 +34,7 @@ Convert recursively mkv and avi with no spaces and remove original file.
 
 ```
 #! /bin/bash
-for file in $( find ./ -iname "*.mkv")
-do
-  OIFS="$IFS"
-  IFS=$'\n'
-  ffmpeg -i "$file" -vcodec h264 -acodec aac -strict -2 "${file%.*}.mp4"
-  rm "$file"
-  IFS="$OIFS"
-done
-
-for file in $( find ./ -iname "*.avi")
+for file in $( find ./ -iname "*.mkv" -o -iname "*.avi")
 do
   OIFS="$IFS"
   IFS=$'\n'
