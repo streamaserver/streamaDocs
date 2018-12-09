@@ -52,3 +52,9 @@ do
   IFS="$OIFS"
 done
 ```
+
+To make better use of multicore machines, GNU parallel can be used to distribute the conversion job across the available cpus:
+```
+#! /bin/bash
+find -iname "*.mkv" -o -iname "*.avi" | parallel 'ffmpeg -i {} -vcodec h264 -acodec aac -strict -2 {.}.mp4'
+```
