@@ -121,7 +121,7 @@ Standard Nginx SSL configurations work. Certbot can be used also.
     #Reverse proxy configuration
     #Change the port (here 8080) to whatever you define in your application.yml
     ProxyPreserveHost On
-    ProxyPass / http:127.0.0.1:8080
+    ProxyPass / http://127.0.0.1:8080
     ProxyPassReverse / http://127.0.0.1:8080
 </VirtualHost>
 ```
