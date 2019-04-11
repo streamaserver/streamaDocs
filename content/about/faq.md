@@ -16,7 +16,7 @@ categories: [about]
 ---
 
 # Where is data stored?
-By default, the data is stored in an embedded, persistent database called H2. This database persists the data into a file adjacent to the .war file that was executed.  
+By default, the data is stored in an embedded, persistent database called H2. This database persists the data into a file adjacent to the .jar file that was executed.  
 If you prefer a mysql setup, see [MySQL Setup](/config/databases/)
 
 # How do I hook in my existing file system, so that I don't need to re-upload each Video file? 

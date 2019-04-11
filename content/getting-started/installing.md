@@ -44,13 +44,13 @@ Create or enter the directory streama will be run from (the directory should be 
 Download the *war* from the [GitHub releases page][releases]. You can use the example below to download.
 
 ```bash
-wget https://github.com/streamaserver/streama/releases/download/vEXAMPLE/streama-EXAMPLE.war
+wget https://github.com/streamaserver/streama/releases/download/vEXAMPLE/streama-EXAMPLE.jar
 ```
 
-Make the `.war` executable with (replace the filename with the one you downloaded):
+Make the `.jar` executable with (replace the filename with the one you downloaded):
 
 ```bash
-chmod +x streama-X.Y.war
+chmod +x streama-X.Y.jar
 ```
 
 ### Run
@@ -60,7 +60,7 @@ It is **not** recommended to run streama as root.
 {{% /warn %}}
 
 ```bash
-java -jar streama-X.Y.war
+java -jar streama-X.Y.jar
 ```
 
 You should see the following output after a short time: 
@@ -88,10 +88,10 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
 Download Streama from the [releases page][releases] page into the folder you will be running from.
 
 ### Run
-Start Command Prompt or Powershell in the directory with the `streama-X.Y.war` you downloaded.
+Start Command Prompt or Powershell in the directory with the `streama-X.Y.jar` you downloaded.
 
 ```
-java -jar streama-X.Y.war
+java -jar streama-X.Y.jar
 ``` 
 
 You should see the following output after a short time.

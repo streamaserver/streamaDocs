@@ -19,7 +19,7 @@ Details of the settings page within the admin section.
 # Upload Directory
 This setting provides the application with your desired upload-path for all files. 
 The default so far has been /data/streama. Remember: if you change this path, copy all the files (that were previously added) into the new directory.
-**Always use an absolute path,** relative paths can get created in temp folders, not the directory of the `streama.war`.
+**Always use an absolute path,** relative paths can get created in temp folders, not the directory of the `streama.jar`.
 
 
 

@@ -15,7 +15,7 @@ toc: true
 categories: [configuration]
 ---
 
-Some settings need to be configured in the application.yml. This is placed next to the streama.war file and will be automatically loaded.
+Some settings need to be configured in the application.yml. This is placed next to the streama.jar file and will be automatically loaded.
 
 
 # Sample application.yml:
