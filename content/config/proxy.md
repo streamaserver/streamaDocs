@@ -1,10 +1,10 @@
 ---
 title: Reverse proxies
 linktitle: Reverse proxies
-description: Using a reverse poxy with Streama
+description: Using a reverse proxy with Streama
 date: 2018-10-06
 publishdate: 2018-10-06
-lastmod: 2018-10-06
+lastmod: 2019-17-04
 categories: [configuration]
 keywords: []
 menu:
@@ -126,3 +126,42 @@ Standard Nginx SSL configurations work. Certbot can be used also.
 </VirtualHost>
 ```
 
+# Caddy
+[Caddy](https://caddyserver.com/) is a lesser-known webserver from Light Code Labs.
+
+## Instructions
+
+* On the settings page, set the `Base URL` that you will use after configuring Caddy.
+EG: `http://plexbad.com`
+
+* Configure from the snippets below as needed.
+
+## On the root of a (sub)domain
+
+```conf
+plexbad.com {
+    proxy / localhost:8080 {
+        transparent
+        websocket
+    }
+}
+```
+> Note that `transparent` is shorthand for:
+> ```
+>  header_upstream Host {host}
+>  header_upstream X-Real-IP {remote}
+>  header_upstream X-Forwarded-For {remote}
+>  header_upstream X-Forwarded-Port {server_port}
+>  header_upstream X-Forwarded-Proto {scheme}
+> ```
+
+## On a subdirectory
+```conf
+plexbad.com {
+    proxy /streama localhost:8080 {
+        transparent
+        websocket
+    }
+}
+```
+> Note that some of the humor is obviously made in jest, don't take us to court, Plex Inc
