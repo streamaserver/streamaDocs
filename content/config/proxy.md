@@ -1,10 +1,10 @@
 ---
 title: Reverse proxies
 linktitle: Reverse proxies
-description: Using a reverse poxy with Streama
+description: Using a reverse proxy with Streama
 date: 2018-10-06
 publishdate: 2018-10-06
-lastmod: 2018-10-06
+lastmod: 2019-17-04
 categories: [configuration]
 keywords: []
 menu:
@@ -126,3 +126,32 @@ Standard Nginx SSL configurations work. Certbot can be used also.
 </VirtualHost>
 ```
 
+# Caddy
+## On the root of a (sub)domain
+```conf
+example.com {
+    proxy / localhost:8080 {
+        transparent
+        websocket
+    }
+}
+```
+> Note that `transparent` is shorthand for:
+> ```
+>  header_upstream Host {host}
+>  header_upstream X-Real-IP {remote}
+>  header_upstream X-Forwarded-For {remote}
+>  header_upstream X-Forwarded-Port {server_port}
+>  header_upstream X-Forwarded-Proto {scheme}
+> ```
+
+## On a subdirectory
+
+```conf
+example.com {
+    proxy /streama localhost:8080 {
+        transparent
+        websocket
+    }
+}
+```
