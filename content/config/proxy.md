@@ -127,9 +127,19 @@ Standard Nginx SSL configurations work. Certbot can be used also.
 ```
 
 # Caddy
+[Caddy](https://caddyserver.com/) is a lesser-known webserver from Light Code Labs.
+
+## Instructions
+
+* On the settings page, set the `Base URL` that you will use after configuring Caddy.
+EG: `http://plexbad.com`
+
+* Configure from the snippets below as needed.
+
 ## On the root of a (sub)domain
+
 ```conf
-example.com {
+plexbad.com {
     proxy / localhost:8080 {
         transparent
         websocket
@@ -146,12 +156,12 @@ example.com {
 > ```
 
 ## On a subdirectory
-
 ```conf
-example.com {
+plexbad.com {
     proxy /streama localhost:8080 {
         transparent
         websocket
     }
 }
 ```
+> Note that some of the humor is obviously made in jest, don't take us to court, Plex Inc
