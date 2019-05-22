@@ -75,6 +75,139 @@ Other mainstream distributions are supported and should be very similar to the U
 {{% improve %}}
 {{% /improve %}}
 
+# FreeNAS
+
+FreeNAS supports virtual machines, so a Linux virtual machine may be created to run streama, in which case the Linux instructions should be used.
+However, it may be preferable to run streama within a jail.
+The following describes how to install streama within a FreeNAS 11 jail.
+
+## Create and setup a jail
+
+Create a new jail with network access.
+Enable DHCP Autoconfigure and Ip4 and VNET.
+
+Enter the jail via ssh and install wget and openjdk8.
+
+```
+pkg install wget openjdk8
+```
+
+Then create a new user, e.g. streama, with the adduser tool.
+Using shell tcsh is recommended.
+See: https://www.freebsd.org/doc/handbook/users-synopsis.html
+
+```
+adduser
+```
+
+## Download Streama
+
+Now change to the new user, in this case streama, and download a recent version of streama.
+
+```
+su streama
+cd ~
+wget --no-check-certificate https://github.com/streamaserver/streama/releases/download/v1.6.7/streama-1.6.7.jar
+chmod +x streama-1.6.7.jar
+```
+
+## Mount existing media to the jail
+
+Now, we must give our jail read (write optional) access to videos on the NAS.
+To do this, stop the jail and, through the GUI, add a mount point.
+e.g. mount a directory from /mnt/pool/user/movies to /usr/home/streama/movies.
+
+Note: depending on the destination chosen, you may need to give the jail user, e.g. streama, read permissions.
+Use 'ls -ld directory' to check permissions of directory.
+
+## Run Streama (not recommended)
+
+At this stage, we may simply run the java with the commands:
+
+```
+su streama
+cd ~
+java -jar streama-1.6.7.jar
+```
+
+## Run Streama as a service
+
+It may be beneficial to instad run streama as a service.
+If you are currently user streama, simply use the command
+
+```
+exit
+```
+
+to go back to root.
+To create a service, we create and go to the directory:
+
+```
+mkdir /usr/local/etc/rc.d
+cd /usr/local/etc/rc.d
+```
+
+Using the easy editor, create the text file:
+
+```
+ee streama_server
+```
+
+and enter the text:
+
+```
+#!/bin/sh
+
+# PROVIDE: streama_server
+ 
+. /etc/rc.subr
+ 
+name="streama_server"
+rcvar=`set_rcvar`
+start_cmd="myscript_start"
+stop_cmd=":"
+ 
+load_rc_config $name
+ 
+streama_server_start()
+{
+    if checkyesno ${rcvar}; then
+      su -m streama -c 'cd /usr/home/streama && java -jar streama-1.6.7.jar >> streama_server.log &'
+    fi
+}
+ 
+run_rc_command "$1"
+```
+
+press esc+enter for the prompt to save and exit the easy editor.
+Make the file streama_server executable:
+
+```
+chmod +x streama_server
+```
+
+Now we must edit the rc.conf file with the easy editor
+
+```
+ee /etc/rc.conf
+```
+
+then add to the bottom of the file
+
+```
+streama_server_enable="YES"
+```
+
+now exit the shell and restart the jail from the GUI.
+
+To verify that streama_server is running, re enter the jail and use the command
+
+```
+service -e
+```
+
+and look for /usr/local/etc/rc.d/streama_server
+
 # Windows
 ### Install Java
 
