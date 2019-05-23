@@ -21,6 +21,8 @@ This setting provides the application with your desired upload-path for all file
 The default so far has been /data/streama. Remember: if you change this path, copy all the files (that were previously added) into the new directory.
 **Always use an absolute path,** relative paths can get created in temp folders, not the directory of the `streama.jar`.
 
+**For Windows:** Use full paths with your drive included, for example `C:\streama\media`
+
 
 
 # TheMovieDB API key
