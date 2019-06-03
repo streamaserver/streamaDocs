@@ -102,7 +102,7 @@ adduser
 
 ## Download Streama
 
-Now change to the new user, in this case streama, and download a recent version of streama.
+Now change to the new user, in this case streama, download a recent version of streama and give the file execute permissions.
 
 ```
 su streama
@@ -132,8 +132,8 @@ java -jar streama-1.6.7.jar
 
 ## Run Streama as a service
 
-It may be beneficial to instad run streama as a service.
-If you are currently user streama, simply use the command
+It may be beneficial to instead run streama as a service.
+If you are currently user streama, simply use the command:
 
 ```
 exit
@@ -153,29 +153,44 @@ Using the easy editor, create the text file:
 ee streama_server
 ```
 
-and enter the text:
+and enter the following text (if you created a user different than streama please, replace 'streama' with your user name in the line that starts with rc_flags= as well as in the lines that point to the /usr/home/streama directory):
 
 ```
 #!/bin/sh
 
 # PROVIDE: streama_server
- 
+
+
 . /etc/rc.subr
- 
-name="streama_server"
-rcvar=`set_rcvar`
-start_cmd="myscript_start"
-stop_cmd=":"
- 
+
+name=streama_server
+rcvar=streama_server_enable
+pidfile_child="/var/run/${name}.pid"
+pidfile="/var/run/${name}_daemon.pid"
+logfile="/var/log/${name}.log"
+streama_server_chdir="/usr/home/streama"
+
+command="/usr/sbin/daemon"
+start_precmd="${name}_prestart"
+
+daemon="java"
+
 load_rc_config $name
- 
-streama_server_start()
-{
-    if checkyesno ${rcvar}; then
-      su -m streama -c 'cd /usr/home/streama && java -jar streama-1.6.7.jar >> streama_server.log &'
-    fi
+: ${streama_server_enable:=no}
+
+streama_server_prestart() {
+
+    # set the daemon / java flags
+    rc_flags="-u 'streama' -r -P ${pidfile} -p ${pidfile_child}  /usr/local/bin/java -jar /usr/home/streama/streama-1.6.7.jar >> /usr/home/streama/streama_server.log 2>&1 ${rc_flags}"
+
+    touch $pidfile
 }
- 
+
+streama_server_describe() {
+    echo "Service for running streama."
+}
+
+
 run_rc_command "$1"
 ```
 
