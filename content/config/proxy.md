@@ -155,16 +155,16 @@ If you DO have SSL enabled:
 	ServerName my_streama.com 		# Change this to your own hostname
 
 	#Logs for errors, access and SSL requests. Comment what you don't want.
-	#Access
+	#Access logs
 	LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\""
 	LogLevel warn
-	TransferLog "/logs/access.log"
-	#Errors
+	TransferLog "logs/access.log"
+	#Error logs
 	ErrorLog "logs/error.log"
-	#SSL
+	#SSL logs
 	CustomLog "logs/ssl_request.log" "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
 
-	#The SSL part.
+	#The SSL part
 	SSLEngine on
 	SSLCertificateFile "conf/ssl/my_streama.crt"		# Change this to the path of your own cert.
 	SSLCertificateKeyFile "conf/ssl/my_streama.key"		# Change this to the path of your own cert.
