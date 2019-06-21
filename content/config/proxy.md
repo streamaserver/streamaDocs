@@ -128,7 +128,7 @@ Standard Nginx SSL configurations work. Certbot can be used also.
 </VirtualHost>
 ```
 
-> If you **DON'T** have **SSL** enabled:
+> If you **DO** have **SSL** enabled:
 
 `etc/apache2/sites-available/streama.example.net.SSL.conf`
 
