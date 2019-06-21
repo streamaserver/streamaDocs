@@ -2,9 +2,9 @@
 title: Reverse proxies
 linktitle: Reverse proxies
 description: Using a reverse proxy with Streama
-date: 2018-10-06
+date: 2019-21-06
 publishdate: 2018-10-06
-lastmod: 2019-17-04
+lastmod: 2019-21-06
 categories: [configuration]
 keywords: []
 menu:
@@ -106,6 +106,8 @@ Standard Nginx SSL configurations work. Certbot can be used also.
 {{% improve %}}
 {{% /improve %}}
 
+> If you **DON'T** have **SSL** enabled:
+
 `etc/apache2/sites-available/streama.example.net.conf`
 
 ```
@@ -125,6 +127,54 @@ Standard Nginx SSL configurations work. Certbot can be used also.
     ProxyPassReverse / http://127.0.0.1:8080
 </VirtualHost>
 ```
+
+> If you **DO** have **SSL** enabled:
+
+`etc/apache2/sites-available/streama.example.net.SSL.conf`
+
+```
+# First of all, we want all traffic coming from the unsecure end going into the secure one, namely, a simple HTTP -> HTTPS redirection
+# If you don't want to redirect all traffic to the secure website (I don't understand why, having a secure one, but just in case),
+# simply remove or comment this entire block.
+<VirtualHost *:80>
+	ServerAdmin name@mail.com		# Change this to your own email
+	ServerName my_streama.com 		# Change this to your own hostname
+
+	RewriteEngine On
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{SERVER_NAME}$1 [R,L]
+</VirtualHost>
+
+#Then, we configure our SSL-secured website:
+<VirtualHost *:443>
+	SSLProxyEngine on
+	ProxyPreserveHost On
+	ProxyRequests Off
+
+	ServerAdmin name@mail.com		# Change this to your own email
+	ServerName my_streama.com 		# Change this to your own hostname
+
+	#Logs for errors, access and SSL requests. Comment what you don't want.
+	#Access logs
+	LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\""
+	LogLevel warn
+	TransferLog "logs/access.log"
+	#Error logs
+	ErrorLog "logs/error.log"
+	#SSL logs
+	CustomLog "logs/ssl_request.log" "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+
+	#The SSL part
+	SSLEngine on
+	SSLCertificateFile "conf/ssl/my_streama.crt"		# Change this to the path of your own cert.
+	SSLCertificateKeyFile "conf/ssl/my_streama.key"		# Change this to the path of your own cert.
+
+	#The actual redirection of the traffic
+	ProxyPass / https://localhost:8080/					# If you have streama running on another port than 8080, change it here.
+	ProxyPassReverse / https://localhost:8080/			# If you have streama running on another port than 8080, change it here.
+</VirtualHost>
+```
+
 
 # Caddy
 [Caddy](https://caddyserver.com/) is a lesser-known webserver from Light Code Labs.
@@ -147,16 +197,16 @@ plexbad.com {
 }
 ```
 > Note that `transparent` is shorthand for:
-> ```
+```
 >  header_upstream Host {host}
 >  header_upstream X-Real-IP {remote}
 >  header_upstream X-Forwarded-For {remote}
 >  header_upstream X-Forwarded-Port {server_port}
 >  header_upstream X-Forwarded-Proto {scheme}
-> ```
+```
 
 ## On a subdirectory
-```conf
+```
 plexbad.com {
     proxy /streama localhost:8080 {
         transparent
