@@ -106,7 +106,7 @@ Standard Nginx SSL configurations work. Certbot can be used also.
 {{% improve %}}
 {{% /improve %}}
 
-If you DON'T have SSL enabled:
+> If you `DON'T` have `SSL` enabled:
 
 `etc/apache2/sites-available/streama.example.net.conf`
 
@@ -128,7 +128,7 @@ If you DON'T have SSL enabled:
 </VirtualHost>
 ```
 
-If you DO have SSL enabled:
+> If you `DO` have `SSL` enabled:
 
 `etc/apache2/sites-available/streama.example.net.SSL.conf`
 
@@ -197,16 +197,16 @@ plexbad.com {
 }
 ```
 > Note that `transparent` is shorthand for:
-> ```
+```
 >  header_upstream Host {host}
 >  header_upstream X-Real-IP {remote}
 >  header_upstream X-Forwarded-For {remote}
 >  header_upstream X-Forwarded-Port {server_port}
 >  header_upstream X-Forwarded-Proto {scheme}
-> ```
+```
 
 ## On a subdirectory
-```conf
+```
 plexbad.com {
     proxy /streama localhost:8080 {
         transparent
