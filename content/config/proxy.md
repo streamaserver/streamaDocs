@@ -106,7 +106,7 @@ Standard Nginx SSL configurations work. Certbot can be used also.
 {{% improve %}}
 {{% /improve %}}
 
-> If you `DON'T` have `SSL` enabled:
+> If you **DON'T** have **SSL** enabled:
 
 `etc/apache2/sites-available/streama.example.net.conf`
 
