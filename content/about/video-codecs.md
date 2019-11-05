@@ -30,6 +30,12 @@ You can convert your videos with FFMPEG. You can try this as a starting point:
 ffmpeg -i input.mkv -vcodec h264 -acodec aac -strict -2 output.mp4
 ```
 
+If you're lucky and your files are already encoded in x264, you might be fine with changing the audio codec and container while keeping the video stream. This would be preferable to the above because encoding audio is much cheaper cpu-wise, typically tenfolds faster and even doable on a laptop:
+
+```
+ffmpeg -i input.mkv -vcodec copy -acodec aac -strict 2 output.mp4
+```
+
 Convert recursively mkv and avi with no spaces and remove original file.
 
 ```
@@ -43,6 +49,7 @@ do
   IFS="$OIFS"
 done
 ```
+
 
 To make better use of multicore machines, GNU parallel can be used to distribute the conversion job across the available cpus:
 ```
