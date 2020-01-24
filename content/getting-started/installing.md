@@ -41,7 +41,7 @@ sudo apt install openjdk-8-jre
 
 Create or enter the directory streama will be run from (the directory should be owned as the user that will run Streama). `/data/streama` or `/srv/streama` are good options, but any will work.
 
-Download the *war* from the [GitHub releases page][releases]. You can use the example below to download.
+Download the *jar* from the [GitHub releases page][releases]. You can use the example below to download.
 
 ```bash
 wget https://github.com/streamaserver/streama/releases/download/vEXAMPLE/streama-EXAMPLE.jar
