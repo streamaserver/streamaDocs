@@ -1,5 +1,5 @@
 ---
-title: Application.yml
+title: application.yml
 description: Configuring Streama with the application.yml
 date: 2018-10-06
 publishdate: 2018-10-06
@@ -80,7 +80,7 @@ setting0:
 ```
 
 
-# Application.yml options:
+# application.yml options:
 This is not an exhaustive list, options from grails / springboot can be used.
 
 
