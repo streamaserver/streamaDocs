@@ -1,8 +1,7 @@
-baseURL = "https://streamaserver.org/"
+baseURL = "https://docs.streama-project.com/"
 languageCode = "en-us"
 title = "Streama"
 theme = "streama"
-enableGitInfo = true
 
 [params]
     docs_repo = "https://github.com/streamaserver/streamaDocs/"

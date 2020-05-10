@@ -3,7 +3,7 @@
     {{ if .Site.Data.jumbotron.enable }}
         <div class="jumbotron jumbotron-fluid text-light bg-dark"
              {{ if .Site.Data.jumbotron.bg }}
-                 {{ printf "style='background-image:url(%q)'" .Site.Data.jumbotron.bg | absURL | safeHTMLAttr }}
+                 {{ printf "style='background-image:url(%q)'" .Site.Data.jumbotron.bg | relURL | safeHTMLAttr }}
              {{end}}
         >
             <div class="container">
