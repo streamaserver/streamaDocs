@@ -37,6 +37,8 @@ Lets go over every file, one by one:
 ## docker-compose.yml
 Below you will find the full configuration for the docker-compose setup, including nginx, letsencrypt, mysql and smtp.
 Note how a lot of volumes are configured, both as files and folders. this is important to ensure that your dockerized data is actually persisted on your main VM. 
+
+For configuring the upload dirs, check the volumes `/app/uploads` and `/app/local-files` below. 
 ```
 docker-compose.yml
 
@@ -85,10 +87,10 @@ services:
     depends_on:
     - db
     environment:
-    - VIRTUAL_HOST=streama.demo-version.net
+    - VIRTUAL_HOST=streama.your-host.net
     - VIRTUAL_PORT=8080
-    - LETSENCRYPT_HOST=streama.demo-version.net
-    - LETSENCRYPT_EMAIL=dularion@gmail.com
+    - LETSENCRYPT_HOST=streama.your-host.net
+    - LETSENCRYPT_EMAIL=you@gmail.com
 
   db:
     image: mariadb:10
