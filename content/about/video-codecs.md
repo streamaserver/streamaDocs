@@ -36,7 +36,7 @@ If you're lucky and your files are already encoded in x264, you might be fine wi
 ffmpeg -i input.mkv -vcodec copy -acodec aac -strict 2 output.mp4
 ```
 
-Convert recursively mkv and avi with no spaces and remove original file.
+Convert recursively mkv and avi and remove original file.
 
 ```
 #! /bin/bash
