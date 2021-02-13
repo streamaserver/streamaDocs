@@ -40,11 +40,11 @@ Convert recursively mkv and avi and remove original file.
 
 ```
 #! /bin/bash
-while IFS= read -r -d '' file
+for file in $( find ./ -iname "*.mkv" -o -iname "*.avi")
 do
-  ffmpeg -nostdin -i "$file" -vcodec h264 -acodec aac -strict -2 "${file%.*}.mp4"
-  rm -f "$file"
-done <   <(find mydir -name '*.mkv' -print0 -o -name '*.avi' -print0)
+    ffmpeg -i "$file" -vcodec copy -acodec aac -strict 2 "${file%.*}.mp4"
+    rm "$file" #! This will delete the original .mkv/.avi file
+done
 ```
 
 
